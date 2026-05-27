@@ -4,7 +4,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ByteHeim Anime Post Generator</title>
+<meta name="author" content="INTOANY™">
+<meta name="application-name" content="IntoAny Anime Post Generator for Blogger">
+<meta name="description" content="Create beautiful anime blog posts instantly with the IntoAny Anime Post Generator. Generate responsive, SEO-friendly Blogger HTML layouts for anime reviews, news, and featured articles.">
+<meta name="keywords" content="anime post generator, anime blog generator, blogger anime template, anime article creator, anime blog tools, free anime generator, blogger HTML generator, anime review template, anime news blog, ByteHeim, INTOANY, anime featured article">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="mobile-web-app-capable" content="yes">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<meta property="og:title" content="Free Anime Blog Post Generator">
+<meta property="og:description" content="Create beautiful anime blog posts instantly with the IntoAny Anime Post Generator. Generate responsive, SEO-friendly Blogger HTML layouts for anime reviews, news, and featured articles.">
+<meta property="og:image" content="anime-blog.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://blog.generator.intoany.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IntoAny">
+<meta property="og:locale" content="en_US">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin">
+<meta name="copyright" content="INTOANY™">
+<meta name="reply-to" content="intoany@vk.com">
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin">
+
+<link rel="canonical" href="https://www.blog.generator.intoany.com/">
+
+<meta name="theme-color" content="#9006ba">
+
+<link rel="icon" href="intoany.png" type="image/x-icon">
+
+<title>IntoAny | Anime Post Generator</title>
+
 
 <style>
 body{
@@ -135,6 +172,13 @@ grid-template-columns:1fr;
 <script>
 
 function generateHTML(){
+    const allFields = document.querySelectorAll('input, textarea');
+    const emptyFields = [...allFields].some(field => field.value.trim() === '');
+    
+    if(emptyFields){
+        alert('Please fill in all fields before generating the HTML.');
+        return;
+    }
 
 const title=document.getElementById('title').value;
 const image=document.getElementById('image').value;
