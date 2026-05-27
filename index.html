@@ -137,6 +137,8 @@ grid-template-columns:1fr;
 
 <input id="status" placeholder="Status">
 
+<input id="youtube" placeholder="YouTube Embed URL">
+
 <textarea id="story" placeholder="Story Overview"></textarea>
 
 <textarea id="story2" placeholder="Second Story Paragraph"></textarea>
@@ -172,6 +174,7 @@ grid-template-columns:1fr;
 <script>
 
 function generateHTML(){
+
     const allFields = document.querySelectorAll('input, textarea');
     const emptyFields = [...allFields].some(field => field.value.trim() === '');
     const title=document.getElementById('title').value;
@@ -182,6 +185,7 @@ function generateHTML(){
     const genre=document.getElementById('genre').value;
     const studio=document.getElementById('studio').value;
     const status=document.getElementById('status').value;
+    const youtube=document.getElementById('youtube').value;
     const story=document.getElementById('story').value;
     const story2=document.getElementById('story2').value;
     const char1=document.getElementById('char1').value;
@@ -251,6 +255,7 @@ const html = `
 
 <div style="background:#fff;border-radius:22px;padding:26px;margin-bottom:24px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
 
+
 <h2 style="font-size:32px;margin-bottom:16px;">Story Overview</h2>
 
 <p style="margin-bottom:12px;color:#222;line-height:1.7;">${story}</p>
@@ -286,6 +291,39 @@ const html = `
 <h2 style="font-size:32px;margin-bottom:16px;">Conclusion</h2>
 
 <p style="color:#222;line-height:1.7;">${conclusion}</p>
+
+</div>
+<div style="background:#fff;border-radius:22px;padding:26px;margin-bottom:24px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
+
+<h2 style="font-size:32px;margin-bottom:16px;">
+Watch Trailer
+</h2>
+
+<div style="
+position:relative;
+width:100%;
+padding-top:56.25%;
+overflow:hidden;
+border-radius:18px;
+box-shadow:0 8px 24px rgba(0,0,0,0.12);
+">
+
+<iframe
+src="${youtube}"
+allowfullscreen
+frameborder="0"
+style="
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+border:none;
+border-radius:18px;
+">
+</iframe>
+
+</div>
 
 </div>
 
