@@ -119,7 +119,7 @@ grid-template-columns:1fr;
 
 <div class="panel">
 
-<h1>ByteHeim Anime Post Generator</h1>
+<h1>Anime Post Generator</h1>
 
 <input id="title" placeholder="Anime Title">
 
@@ -297,8 +297,36 @@ document.getElementById('output').textContent = html;
 }
 
 function copyHTML(){
-navigator.clipboard.writeText(document.getElementById('output').textContent);
-alert('HTML Copied!');
+
+    const text = document.getElementById('output').textContent;
+
+    if(navigator.clipboard){
+
+        navigator.clipboard.writeText(text)
+        .then(() => {
+
+            alert('Template Copied!');
+
+        });
+
+    }else{
+
+        const textArea = document.createElement('textarea');
+
+        textArea.value = text;
+
+        document.body.appendChild(textArea);
+
+        textArea.select();
+
+        document.execCommand('copy');
+
+        document.body.removeChild(textArea);
+
+        alert('Template Copied!');
+
+    }
+
 }
 
 </script>
