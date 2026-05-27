@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ByteHeim Anime Post Generator</title>
+
+<style>
+body{
+background:#f5f5f7;
+font-family:Arial,sans-serif;
+padding:30px;
+margin:0;
+color:#111;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.panel{
+background:#fff;
+padding:25px;
+border-radius:24px;
+box-shadow:0 6px 24px rgba(0,0,0,0.08);
+}
+
+input,textarea{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #ddd;
+margin-top:8px;
+margin-bottom:18px;
+font-size:14px;
+box-sizing:border-box;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+button{
+background:#9006ba;
+color:#fff;
+border:none;
+padding:14px 22px;
+border-radius:16px;
+cursor:pointer;
+font-size:15px;
+margin-right:10px;
+}
+
+.output{
+background:#111;
+color:#0f0;
+padding:20px;
+border-radius:18px;
+white-space:pre-wrap;
+overflow:auto;
+max-height:800px;
+font-size:13px;
+}
+
+@media(max-width:900px){
+.container{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="panel">
+
+<h1>ByteHeim Anime Post Generator</h1>
+
+<input id="title" placeholder="Anime Title">
+
+<input id="image" placeholder="Blogger Image URL">
+
+<textarea id="intro" placeholder="Intro Paragraph"></textarea>
+
+<textarea id="intro2" placeholder="Second Intro Paragraph"></textarea>
+
+<input id="jtitle" placeholder="Japanese Title">
+
+<input id="genre" placeholder="Genre">
+
+<input id="studio" placeholder="Studio">
+
+<input id="status" placeholder="Status">
+
+<textarea id="story" placeholder="Story Overview"></textarea>
+
+<textarea id="story2" placeholder="Second Story Paragraph"></textarea>
+
+<input id="char1" placeholder="Character 1">
+
+<textarea id="char1desc" placeholder="Character 1 Description"></textarea>
+
+<input id="char2" placeholder="Character 2">
+
+<textarea id="char2desc" placeholder="Character 2 Description"></textarea>
+
+<textarea id="popularity" placeholder="Popularity"></textarea>
+
+<textarea id="conclusion" placeholder="Conclusion"></textarea>
+
+<button onclick="generateHTML()">Generate HTML</button>
+
+<button onclick="copyHTML()">Copy HTML</button>
+
+</div>
+
+<div class="panel">
+
+<h2>Generated HTML</h2>
+
+<div class="output" id="output"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function generateHTML(){
+
+const title=document.getElementById('title').value;
+const image=document.getElementById('image').value;
+const intro=document.getElementById('intro').value;
+const intro2=document.getElementById('intro2').value;
+const jtitle=document.getElementById('jtitle').value;
+const genre=document.getElementById('genre').value;
+const studio=document.getElementById('studio').value;
+const status=document.getElementById('status').value;
+const story=document.getElementById('story').value;
+const story2=document.getElementById('story2').value;
+const char1=document.getElementById('char1').value;
+const char1desc=document.getElementById('char1desc').value;
+const char2=document.getElementById('char2').value;
+const char2desc=document.getElementById('char2desc').value;
+const popularity=document.getElementById('popularity').value;
+const conclusion=document.getElementById('conclusion').value;
+
+const html = `
+<div style="max-width:1100px;margin:auto;font-family:Arial,sans-serif;line-height:1.7;color:#111;">
+
+<div style="background:#fff;border-radius:24px;padding:24px;margin-bottom:24px;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+
+<h1 style="font-size:42px;margin-bottom:18px;color:#111;">${title}</h1>
+
+<div style="display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start;">
+
+<img src="${image}" style="width:320px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,0.18);">
+
+<div style="flex:1;min-width:280px;">
+
+<p style="font-size:15px;color:#222;line-height:1.7;margin-bottom:10px;">${intro}</p>
+
+<p style="font-size:15px;color:#222;line-height:1.7;margin-bottom:10px;">${intro2}</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div style="background:#fff;border-radius:22px;padding:24px;margin-bottom:24px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
+
+<h2 style="font-size:30px;margin-bottom:18px;">Quick Information</h2>
+
+<table style="width:100%;border-collapse:collapse;">
+
+<tr>
+<td style="padding:12px;border-bottom:1px solid #eee;font-weight:bold;width:220px;">Japanese Title</td>
+<td style="padding:12px;border-bottom:1px solid #eee;">${jtitle}</td>
+</tr>
+
+<tr>
+<td style="padding:12px;border-bottom:1px solid #eee;font-weight:bold;">Genre</td>
+<td style="padding:12px;border-bottom:1px solid #eee;">${genre}</td>
+</tr>
+
+<tr>
+<td style="padding:12px;border-bottom:1px solid #eee;font-weight:bold;">Studio</td>
+<td style="padding:12px;border-bottom:1px solid #eee;">${studio}</td>
+</tr>
+
+<tr>
+<td style="padding:12px;font-weight:bold;">Status</td>
+<td style="padding:12px;">${status}</td>
+</tr>
+
+</table>
+
+</div>
+
+<div style="background:#fff;border-radius:22px;padding:26px;margin-bottom:24px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
+
+<h2 style="font-size:32px;margin-bottom:16px;">Story Overview</h2>
+
+<p style="margin-bottom:12px;color:#222;line-height:1.7;">${story}</p>
+
+<p style="margin-bottom:12px;color:#222;line-height:1.7;">${story2}</p>
+
+</div>
+
+<div style="background:#fff;border-radius:22px;padding:26px;margin-bottom:24px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
+
+<h2 style="font-size:32px;margin-bottom:16px;">Main Characters</h2>
+
+<h3 style="font-size:26px;margin-bottom:8px;">${char1}</h3>
+
+<p style="margin-bottom:14px;color:#222;line-height:1.7;">${char1desc}</p>
+
+<h3 style="font-size:26px;margin-bottom:8px;">${char2}</h3>
+
+<p style="color:#222;line-height:1.7;">${char2desc}</p>
+
+</div>
+
+<div style="background:#fff;border-radius:22px;padding:26px;margin-bottom:24px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
+
+<h2 style="font-size:32px;margin-bottom:16px;">Popularity</h2>
+
+<p style="color:#222;line-height:1.7;">${popularity}</p>
+
+</div>
+
+<div style="background:#fff;border-radius:22px;padding:26px;box-shadow:0 6px 24px rgba(0,0,0,0.06);">
+
+<h2 style="font-size:32px;margin-bottom:16px;">Conclusion</h2>
+
+<p style="color:#222;line-height:1.7;">${conclusion}</p>
+
+</div>
+
+</div>
+`;
+
+document.getElementById('output').textContent = html;
+
+}
+
+function copyHTML(){
+navigator.clipboard.writeText(document.getElementById('output').textContent);
+alert('HTML Copied!');
+}
+
+</script>
+
+</body>
+</html>
