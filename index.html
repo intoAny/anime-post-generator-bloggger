@@ -22,7 +22,7 @@
 <meta property="og:image" content="anime-blog.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://blog.generator.intoany.com/">
+<meta property="og:url" content="https://www.blog.generator.intoany.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IntoAny">
 <meta property="og:locale" content="en_US">
@@ -174,28 +174,27 @@ grid-template-columns:1fr;
 function generateHTML(){
     const allFields = document.querySelectorAll('input, textarea');
     const emptyFields = [...allFields].some(field => field.value.trim() === '');
-    
-    if(emptyFields){
+    const title=document.getElementById('title').value;
+    const image=document.getElementById('image').value;
+    const intro=document.getElementById('intro').value;
+    const intro2=document.getElementById('intro2').value;
+    const jtitle=document.getElementById('jtitle').value;
+    const genre=document.getElementById('genre').value;
+    const studio=document.getElementById('studio').value;
+    const status=document.getElementById('status').value;
+    const story=document.getElementById('story').value;
+    const story2=document.getElementById('story2').value;
+    const char1=document.getElementById('char1').value;
+    const char1desc=document.getElementById('char1desc').value;
+    const char2=document.getElementById('char2').value;
+    const char2desc=document.getElementById('char2desc').value;
+    const popularity=document.getElementById('popularity').value;
+    const conclusion=document.getElementById('conclusion').value;
+
+        if(emptyFields){
         alert('Please fill in all fields before generating the HTML.');
         return;
     }
-
-const title=document.getElementById('title').value;
-const image=document.getElementById('image').value;
-const intro=document.getElementById('intro').value;
-const intro2=document.getElementById('intro2').value;
-const jtitle=document.getElementById('jtitle').value;
-const genre=document.getElementById('genre').value;
-const studio=document.getElementById('studio').value;
-const status=document.getElementById('status').value;
-const story=document.getElementById('story').value;
-const story2=document.getElementById('story2').value;
-const char1=document.getElementById('char1').value;
-const char1desc=document.getElementById('char1desc').value;
-const char2=document.getElementById('char2').value;
-const char2desc=document.getElementById('char2desc').value;
-const popularity=document.getElementById('popularity').value;
-const conclusion=document.getElementById('conclusion').value;
 
 const html = `
 <div style="max-width:1100px;margin:auto;font-family:Arial,sans-serif;line-height:1.7;color:#111;">
