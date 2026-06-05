@@ -7,7 +7,7 @@
 <meta name="author" content="INTOANY™">
 <meta name="application-name" content="IntoAny Anime Post Generator for Blogger">
 <meta name="description" content="Create beautiful anime blog posts instantly with the IntoAny Anime Post Generator. Generate responsive, SEO-friendly Blogger HTML layouts for anime reviews, news, and featured articles.">
-<meta name="keywords" content="anime post generator, anime blog generator, blogger anime template, anime article creator, anime blog tools, free anime generator, blogger HTML generator, anime review template, anime news blog, ByteHeim, INTOANY, anime featured article">
+<meta name="keywords" content="anime post generator,intoany, intoany-tools,anime,pop,byteheim, anime blog generator, blogger anime template, anime article creator, anime blog tools, free anime generator, blogger HTML generator, anime review template, anime news blog, ByteHeim, INTOANY, anime featured article">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 <meta name="bingbot" content="index, follow">
@@ -121,6 +121,18 @@ font-size:15px;
 margin-right:10px;
 }
 
+.button-row{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:6px;
+}
+
+.button-row button{
+flex:1 1 160px;
+margin-right:0;
+}
+
 .output{
 background:#111;
 color:#0f0;
@@ -135,6 +147,26 @@ font-size:13px;
 @media(max-width:900px){
 .container{
 grid-template-columns:1fr;
+}
+}
+
+@media(max-width:411px){
+body{
+padding:14px;
+}
+
+.panel{
+padding:18px;
+border-radius:18px;
+}
+
+.button-row{
+flex-direction:column;
+}
+
+.button-row button{
+width:100%;
+flex-basis:100%;
 }
 }
 </style>
@@ -182,9 +214,10 @@ grid-template-columns:1fr;
 
 <textarea id="conclusion" placeholder="Conclusion"></textarea>
 
+<div class="button-row">
 <button onclick="generateHTML()">Generate HTML</button>
-
 <button onclick="copyHTML()">Copy HTML</button>
+</div>
 
 </div>
 
